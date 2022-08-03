@@ -1,78 +1,87 @@
-
-let petList = [];
-let bookList = [];
-class Pet {
-    constructor(apellido, mascotas) {
-        this.apellido = apellido
-        this.mascotas = mascotas
+const fs = require('fs/promises');
+class Container {
+    constructor(path) {
+        this.path = path
     }
-}
-class Book {
-    constructor(apellido, libro, autor) {
-        this.apellido = apellido
-        this.libro = libro
-        this.autor = autor
-    }
-}
-class Usuario {
-    static PetCount = 0;
-    constructor(nombre, apellido, libro, autor, mascota) {
-        this.nombre = nombre
-        this.apellido = apellido
-        this.libro = libro
-        this.autor = autor
-        this.mascota = mascota
-    }
-    getfullName() {
-        return `Nombre de usuario: ${this.nombre} ${this.apellido}`;
-    }
-    addMascota() {
-        petList.push(new Pet(this.apellido, this.mascota));
-
-    }
-    countMascotas() {
-        var i = 0;
-        petList.forEach(element => {
-            if (element.apellido == this.apellido) {
-                if (element.mascota != 0) {
-                    i++;
-                }
+    async save(obj) {
+        try {
+            const allFiles = await this.getAll();
+            let newId;
+            if (allFiles.length == 0) {
+                newId = 1
             }
-        });
-        if (i != 0) {
-            return `Cantidad de mascotas de ${this.nombre} ${i}`;
+            else {
+                newId = allFiles[allFiles.length - 1].id + 1
+            }
+            const newFile = { id: newId, ...obj }
+            allFiles.push(newFile)
+            await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+            return newId;
+        } catch (error) {
+            return 'error al guardar'
         }
     }
-    addBook() {
-        bookList.push(new Book(this.apellido, this.libro, this.autor));
-    }
-    getBookNames() {
-        console.log(`libros de ${this.nombre} :`)
-        bookList.forEach(element => {
-            if (element.apellido == this.apellido) {
-                console.log(element.libro)
+    async getById(id) {
+        try {
+            const allFiles = await this.getAll();
+            const indexFile = allFiles.findIndex((element) => element.id == id);
+            const oldObj = allFiles.find((element) => element.id == id);
+            if (indexFile == -1) {
+                return 'no encontrado'
+            } else {
+                return `Titulo del objeto encontrado: ${oldObj.tittle}`
             }
-        })
+        } catch (error) {
+            return 'no encontrado'
+        }
+    }
+    async getAll() {
+        try {
+            const files = await fs.readFile(this.path, 'utf-8');
+            return JSON.parse(files)
+        } catch (error) {
+            return []
+        }
+    }
+    async deleteById(id) {
+        try {
+            const allFiles = await this.getAll();
+            const indexFile = allFiles.findIndex((element) => element.id == id);
+            //guarda el eliminado para luego mostrarlo
+            const oldObj = allFiles.find((element) => element.id == id);
+            if (indexFile == -1) {
+                return 'no encontrado'
+            } else {
+                allFiles.splice(indexFile, 1);
+                await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+                return `Titulo del objeto eliminado: ${oldObj.tittle}`;
+            }
+        } catch (error) {
+            return 'no  se pudo eliminar'
+        }
+    }
+    async deleteAll() {
+        try {
+            const allFiles = await this.getAll();
+            allFiles.splice(0, allFiles.length);
+            await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+            return 'Se eliminaron todos los archivos';
+        } catch (error) {
+            return 'no se pudo eliminar el array';
+        }
     }
 }
-const user1 = new Usuario('Alejandra', 'Herrera', 'Viaje al fin de la noche', 'Louis-Ferdinand Céline', 'gato');
-const user2 = new Usuario('Alejandra', 'Herrera', 'Fahrenheit 451', 'Ray Bradbury', 'serpiente');
-const user3 = new Usuario('Pablo', 'Lopez', 'Grandes Esperanzas', 'Charles Dickens', 'perro');
-const user4 = new Usuario('Pablo', 'Lopez', 'Fausto', 'Johann Wolfgang von Goethe', 'loro');
-const user5 = new Usuario('Pablo', 'Lopez', 'Las metamorfosis', 'Ovidio', 'mono');
-console.log(user1.getfullName());
-user1.addMascota();
-user2.addMascota();
-console.log(user1.countMascotas());
-console.log(user3.getfullName());
-user3.addMascota();
-user4.addMascota();
-user5.addMascota();
-console.log(user3.countMascotas());
-user1.addBook();
-user2.addBook();
-user3.addBook();
-user4.addBook();
-user5.addBook();
-console.log(user1.getBookNames());
-console.log(user3.getBookNames());
+async function main() {
+    const file = new Container('./DB/productos.txt');
+    console.log(file.path);
+    await file.save({ "tittle": "Memoria GeiL DDR4 16GB 3000MHz Orion RGB Black ", "price": 13350, "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31969_Memoria_GeiL_DDR4_16GB_3000MHz_Orion_RGB_Black_aa7bb4c0-grn.jpg" });
+    await file.save({ "tittle": "Gabinete Kolink Observatory Lite Black 4x120mm ARGB Vidrio Templado", "price": 12250, "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg" });
+    await file.save({ "tittle": "UPS Lyonn CTB-800V 800va", "price": 9750, "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_7367_UPS_Lyonn_CTB-800V_800va_e8522db0-grn.jpg" });
+    console.log(await file.getAll());
+    console.log(await file.getById(2));
+    console.log(await file.deleteById(1));
+    console.log('------------------------Despues de eliminar por ID-----------------------------')
+    console.log(await file.getAll());
+    console.log(await file.deleteAll());
+}
+main();
