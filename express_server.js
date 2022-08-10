@@ -1,20 +1,14 @@
 const express = require('express');
 const Container = require('./src/script.js');
 
-const file = new Container('../DB/productos.txt');
+const file = new Container();
 const app = express();
 
 const PORT = 8080;
 
 app.get('/productos', async(req,res) => {
-   try{
-    console.log(file.path);
-    const productos=(await file.getAll());
-    console.log(productos.length)
-    res.send(`se pudo leer`);
-   }catch(error){
-    res.send('no se pudo leer');
-   }
+  const products=await file.getAll();
+  res.send(products);
 })
 
 // app.get('/productoRandom', (req, res) => {
