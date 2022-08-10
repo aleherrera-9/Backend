@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "tittle": "Memoria GeiL DDR4 16GB 3000MHz Orion RGB Black ",
+    "price": 13350,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31969_Memoria_GeiL_DDR4_16GB_3000MHz_Orion_RGB_Black_aa7bb4c0-grn.jpg"
+  },
+  {
+    "id": 2,
+    "tittle": "Gabinete Kolink Observatory Lite Black 4x120mm ARGB Vidrio Templado",
+    "price": 12250,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg"
+  },
+  {
+    "id": 3,
+    "tittle": "UPS Lyonn CTB-800V 800va",
+    "price": 9750,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_7367_UPS_Lyonn_CTB-800V_800va_e8522db0-grn.jpg"
+  },
+   {
+    "id": 4,
+    "tittle": "Memoria GeiL DDR4 16GB 3000MHz Orion RGB Black ",
+    "price": 13350,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31969_Memoria_GeiL_DDR4_16GB_3000MHz_Orion_RGB_Black_aa7bb4c0-grn.jpg"
+  },
+  {
+    "id": 5,
+    "tittle": "Gabinete Kolink Observatory Lite Black 4x120mm ARGB Vidrio Templado",
+    "price": 12250,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg"
+  },
+  {
+    "id": 6,
+    "tittle": "UPS Lyonn CTB-800V 800va",
+    "price": 9750,
+    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_7367_UPS_Lyonn_CTB-800V_800va_e8522db0-grn.jpg"
+  }
+]
