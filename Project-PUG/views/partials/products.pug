@@ -1,0 +1,17 @@
+div(class="p-4")
+    h2(class="bg-dark p-2 text-white") Lista de Productos
+    br
+    if PRODUCTS
+        table(class="table table-dark text-center")
+            tr
+                th 
+                th Producto
+                th Precio
+            each product in PRODUCTS        
+                tr
+                    td
+                        img(src=product.thumbnail width="60px" height="70px")
+                    td=product.title
+                    td=product.price
+    else 
+        h3(class="alert alert-warning")='No se encontraron productos'
