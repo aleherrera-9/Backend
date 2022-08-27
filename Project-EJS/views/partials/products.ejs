@@ -1,0 +1,23 @@
+
+<h2 style="color:crimson;">Historial</h2>
+
+<% if(PRODUCTS){ %> 
+    <div class="table-responsive">
+        <table class="table table-dark text-center">
+            <tr style="color: yellow;"> 
+                <th></th> 
+                <th>Producto</th> 
+                <th>Precio</th> 
+            </tr>
+            <% for (const product of PRODUCTS) {%> 
+            <tr> 
+                <td><img src=<%=product.thumbnail %>  width="60px" height="70px"></td>
+                <td><%=product.title %> </td>
+                <td><%=product.price %> </td>
+            </tr>
+            <% } %> 
+        </table>
+    </div>
+<% } else { %> 
+    <h3 class="alert alert-warning">No se encontro el producto</h3>
+<% } %> 
