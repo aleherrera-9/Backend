@@ -1,0 +1,19 @@
+{{#if DB_PRODUCTS}}
+
+    <h2 class="text-dark">Lista de Productos</h2>
+    <table class="table table-dark">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+        </tr>
+        {{#each DB_PRODUCTS}}
+        <tbody id="element">
+         {{!-- Espacio para cargar los productos --}}
+        </tbody>
+        {{/each}}
+    </table>
+
+{{else}}
+<h1> NO SE ENCONTRARON PRODUCTOS </h1>
+{{/if}}
