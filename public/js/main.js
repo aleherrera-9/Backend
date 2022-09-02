@@ -51,11 +51,29 @@ function sendMessage() {
     let today = new Date();
     const now = today.toLocaleString();
     const inputEmail = document.querySelector('#email');
-    const inputMessage = document.querySelector('#messageContent');
-    const message = {
-        email: inputEmail.value,
-        time:now,
-        text: inputMessage.value
+    // controla si el email no fue ingresado
+    if(inputEmail.value!=0){
+        const inputMessage = document.querySelector('#messageContent');
+        // si el mensaje esta vacio pide que ingrese uno nuevo
+        if(inputMessage.value!=0){
+             const message = {
+            email: inputEmail.value,
+            time:now,
+            text: inputMessage.value
+            }
+            socketMessages.emit('from-client-newMessage', message);
+            // limpia la etiqueta p en la que se ingreso el texto cuando el mensaje o el email estaba vacio
+            document.querySelector('#empty').innerHTML = '';
+            document.querySelector('#emptyMessage').innerHTML = '';
+        }else{
+            // etiqueta p de alerta por mensaje vacio
+            document.querySelector('#emptyMessage').innerHTML = `El mensaje no puede estar vacio, ingrese un mensaje`;
+        }
+       
     }
-    socketMessages.emit('from-client-newMessage', message);
+    else{
+        // etique p de alerta por mail vacio
+        document.querySelector('#empty').innerHTML = `Ingrese un mail para acceder al chat`;
+    }
+    
 }
