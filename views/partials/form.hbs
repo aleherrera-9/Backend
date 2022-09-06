@@ -1,7 +1,8 @@
 
-    <h2 class="text-success">Ingrese los datos del producto</h2>
+   <div class="m-2 p-4">
+    <h1 class="text-success">Agregar un nuevo producto</h1>
     <br>
-    <form action="/productos" method="post">
+    <form action="/api/productos" method="POST">
         <div class="form-group">
             <label for="title"><b>Producto</b></label>
             <input id="title" class="form-control" type="text" name="title">
@@ -14,9 +15,9 @@
             <label for="thumbnail"><b>Url de la imagen</b></label>
             <input id="thumbnail" class="form-control" type="url" name="thumbnail">
         </div>
-        <button class="btn btn-success mt-3 mb-5" onclick="addProduct()">Agregar</button>
+        <button class="btn btn-success mt-3 mb-5">Enviar</button>
        
     </form>
-
+</div>
     
 

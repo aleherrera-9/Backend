@@ -1,0 +1,26 @@
+{{#if product.id}}
+<h3 class="bg-dark text-white text-center m-4">Producto numero {{product.id}} de la lista</h3>
+<div class="m-4 row">
+    
+    <table class="table text-center m-4">
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Producto</th>
+            <th scope="col">Precio</th>
+        </tr>
+        <tr>
+            <td>
+                <img src={{product.thumbnail}} width="180px" height="150px">
+            </td>
+            <td>
+                {{product.title}}
+            </td>
+            <td>
+                {{product.price}}
+            </td>
+        </tr>
+    </table>
+</div>
+{{else}}
+<h1>No se encontro el producto</h1>
+{{/if}}
