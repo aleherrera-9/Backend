@@ -1,0 +1,21 @@
+
+{{#if PRODUCTS}}
+<h3 class="text-center m-4">PRODUCTOS</h3>
+<div class="d-flex flex-row mb-3 justify-content-center">
+    <div class="p-2 card-group">
+        {{#each PRODUCTS}}
+        <form class="card m-4" style="width: 18rem;"  action='/api/carrito/{{this.id}}' method="POST" >
+            <img src={{this.thumbnail}} class="card-img-top" id="thumbnail" alt="...">
+            <div class="card-body">
+                <p class="card-title" id="title">{{this.title}}</p>
+            </div>
+            <div class="card-footer">
+                 <p class="card-text" id="price">Precio : {{this.price}}</p>
+                <button class="btn btn-success" >Comprar</button>
+            </div>
+        </form>
+
+        {{/each}}
+    </div>
+</div>
+{{/if}}

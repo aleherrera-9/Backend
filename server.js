@@ -2,9 +2,11 @@
 const express = require('express');
 const exphbs = require('express-handlebars');
 const path = require('path');
+
 //Instancia de server
 const app = express();
 const routerProducts=require('./routes/products.routes');
+const routerCart=require('./routes/cart.routes');
 
 /*DB*/
 const Container = require('./src/script');
@@ -28,6 +30,7 @@ app.set('view engine', 'hbs')
 
 /*-------------------Rutas----------------*/
 app.use('/api/productos',routerProducts);
+app.use('/api/carrito',routerCart);
 /*-------------------Servidor----------------*/
 const PORT = 8080;
 const server = app.listen(PORT, () => {
