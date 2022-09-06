@@ -29,7 +29,7 @@ app.set('view engine', 'hbs')
 /*-------------------Rutas----------------*/
 app.use('/api/productos',routerProducts);
 /*-------------------Servidor----------------*/
-const PORT = 8081;
+const PORT = 8080;
 const server = app.listen(PORT, () => {
     console.log(`Servidor en http://localhost:${PORT}`);
 });
