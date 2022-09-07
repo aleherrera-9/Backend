@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "productos": [
+      {
+        "id": 1,
+        "title": "Gabinete Kolink Observatory",
+        "description": "Lite Black 4x120mm ARGB Vidrio Templado",
+        "price": 15980,
+        "cod": 2222,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 12:29:37"
+      },
+      {
+        "id": 2,
+        "title": "Gabinete Kolink Observatory",
+        "description": "Lite Black 4x120mm ARGB Vidrio Templado",
+        "price": 11111,
+        "cod": 2222,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 10:06:52"
+      }
+    ],
+    "timestamp": "06/09/2022 11:12:13"
+  },
+  {
+    "id": 2,
+    "productos": [
+      {
+        "id": 1,
+        "title": "Gabinete Kolink Observatory",
+        "description": "Lite Black 4x120mm ARGB Vidrio Templado",
+        "price": 15980,
+        "cod": 2222,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 12:17:43"
+      }
+    ],
+    "timestamp": "07/09/2022 12:17:22"
+  },
+  {
+    "id": 3,
+    "productos": [
+      {
+        "id": 1,
+        "title": "Gabinete Kolink Observatory",
+        "description": "Lite Black 4x120mm ARGB Vidrio Templado",
+        "price": 15980,
+        "cod": 2222,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 12:17:46"
+      },
+      {
+        "id": 2,
+        "title": "Auriculares ASUS",
+        "description": "ROG STRIX GO CORE Moonlight White",
+        "price": "18970",
+        "cod": 1558,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31306_Auriculares_ASUS_ROG_STRIX_GO_CORE_Moonlight_White_39c6f4b3-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 05:19:36"
+      }
+    ],
+    "timestamp": "07/09/2022 12:17:23"
+  },
+  {
+    "id": 4,
+    "productos": [
+      {
+        "id": 2,
+        "title": "Auriculares ASUS",
+        "description": "ROG STRIX GO CORE Moonlight White",
+        "price": "18970",
+        "cod": 1558,
+        "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_31306_Auriculares_ASUS_ROG_STRIX_GO_CORE_Moonlight_White_39c6f4b3-grn.jpg",
+        "stock": 150,
+        "timestamp": "07/09/2022 05:26:08"
+      }
+    ],
+    "timestamp": "07/09/2022 05:26:03"
+  }
+]

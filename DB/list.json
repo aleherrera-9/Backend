@@ -3,16 +3,6 @@
     "id": 1,
     "title": "Gabinete Kolink Observatory",
     "description": "Lite Black 4x120mm ARGB Vidrio Templado",
-    "price": 15980,
-    "cod": 2222,
-    "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
-    "stock": 150,
-    "timestamp": "07/09/2022 12:18:20"
-  },
-  {
-    "id": 2,
-    "title": "Gabinete Kolink Observatory",
-    "description": "Lite Black 4x120mm ARGB Vidrio Templado",
     "price": 11111,
     "cod": 2222,
     "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_24191_Gabinete_Kolink_Observatory_Lite_Black_4x120mm_ARGB_Vidrio_Templado_23c44701-grn.jpg",
@@ -20,7 +10,7 @@
     "timestamp": "07/09/2022 12:16:04"
   },
   {
-    "id": 3,
+    "id": 2,
     "title": "Auriculares ASUS",
     "description": "ROG STRIX GO CORE Moonlight White",
     "price": "18970",
@@ -30,7 +20,7 @@
     "timestamp": "04/09/2022 10:38:03"
   },
   {
-    "id": 4,
+    "id": 3,
     "title": "Notebook Gamer AORUS",
     "description": "KD 15.6\" Core I7 11800H 16GB (2x8GB) 512GB SSD NVMe RTX 3060 240Hz W11",
     "price": "99999999",
@@ -38,9 +28,5 @@
     "thumbnail": "https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_30650_Notebook_Gamer_AORUS_KD_15.6__Core_I7_11800H_16GB__2x8GB__512GB_SSD_NVMe_RTX_3060_240Hz_W11_d6ed3ff1-grn.jpg",
     "stock": 150,
     "timestamp": "04/09/2022 10:38:03"
-  },
-  {
-    "id": 5,
-    "timestamp": "07/09/2022 12:21:24"
   }
 ]

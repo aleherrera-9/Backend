@@ -11,6 +11,9 @@ const routerCart=require('./routes/cart.routes');
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(__dirname+'/public'));
+app.use(function(err,req,res,next){
+    res.status(err.status||500).send('ruta no identificada');
+})
 
 /*-------------------Plantillas----------------*/
 app.engine('hbs', exphbs.engine({
