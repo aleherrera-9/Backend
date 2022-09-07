@@ -56,12 +56,12 @@ elimina un producto
 ## GET-LISTA DE ARTICULOS POR CARRITO
  devuelve todos los carritos existentes
 
- GET -Ruta: http://localhost:8080/api/carrito/1
+ GET -Ruta: http://localhost:8080/api/carrito
 
  devuelve todos los prodcutos de un carrito
 
  GET/:id/productos -Ruta:http://localhost:8080/api/carrito/1/productos
- 
+
 ## Agregar un producto a  un carrito
  POST -Ruta: http://localhost:8080/api/carrito/3/productos
  {
