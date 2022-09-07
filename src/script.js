@@ -1,16 +1,17 @@
 const fs = require('fs/promises');
-
+const moment=require('moment');
 class Container {
-    constructor() { }
-
+    constructor(path){ this.path=path; }
+   
     async getAll() {
         try {
-            const files = await fs.readFile('./DB/list.txt', 'utf-8');
+            const files = await fs.readFile(this.path, 'utf-8');
             return (JSON.parse(files));
         } catch (error) {
             return []
         }
     }
+    
     async save(obj) {
         try {
             const allFiles = await this.getAll();
@@ -21,20 +22,34 @@ class Container {
             else {
                 newId = allFiles[allFiles.length - 1].id + 1
             }
-            const newFile = { id: newId, ...obj }
+            const newFile = { id: newId, ...obj,timestamp:moment().format("DD/MM/YYYY hh:mm:ss") }
             allFiles.push(newFile)
-            await fs.writeFile('./DB/list.txt', JSON.stringify(allFiles, null, 2));
+            await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+            return newId;
         } catch (error) {
             return 'error al guardar'
         }
     }
-    async update(obj) {
+    async update(obj,file) {
         const allFiles = await this.getAll();
-        const found = allFiles.find(element => element.id == obj.id);
-        found.title = obj.title;
-        found.price = obj.price;
-        found.thumbnail = obj.thumbnail;
-        await fs.writeFile('./DB/list.txt', JSON.stringify(allFiles, null, 2));
+        if(file!=null){
+            const found = allFiles.find(element => element.id == obj.id);
+            const newFile = allFiles.find(element => element.id == file.id);
+            newFile.productos.push({id: found.id, ...obj,timestamp:moment().format("DD/MM/YYYY hh:mm:ss") })
+            await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+        }else{
+            const found = allFiles.find(element => element.id == obj.id);
+            found.id=obj.id;
+            found.title = obj.title;
+            found.description=obj.description;
+            found.price = obj.price;
+            found.cod=obj.cod;
+            found.thumbnail = obj.thumbnail;
+            found.stock=obj.stock;
+            found.timestamp=moment().format("DD/MM/YYYY hh:mm:ss");
+            await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+        }
+        
     }
     async getById(id) {
         try {
@@ -60,8 +75,8 @@ class Container {
                 return 'no encontrado'
             } else {
                 allFiles.splice(indexFile, 1);
-                await fs.writeFile('./DB/list.txt', JSON.stringify(allFiles, null, 2));
-                return `Titulo del objeto eliminado: ${oldObj.title}`;
+                await fs.writeFile(this.path, JSON.stringify(allFiles, null, 2));
+                return `ID eliminado: ${oldObj.id}`;
             }
         } catch (error) {
             return 'no  se pudo eliminar'

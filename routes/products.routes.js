@@ -3,7 +3,7 @@ const routerProducts = express.Router();
 
 /*--------------------------DB--------------------------*/
 const Container = require('../src/script');
-const file = new Container();
+const file = new Container('./DB/list.txt');
 
 routerProducts.get('/', async(req, res) => {
     const PRODUCTS = await file.getAll()
@@ -26,7 +26,7 @@ routerProducts.post('/', async(req, res) => {
 
 routerProducts.put('/:id', async (req, res) => {
     const id = req.params.id;
-    await file.update(req.body)
+    await file.update(req.body,null);
     return res.json({id,messg: 'Actualizado' })
 });
 

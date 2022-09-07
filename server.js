@@ -7,11 +7,6 @@ const path = require('path');
 const app = express();
 const routerProducts=require('./routes/products.routes');
 const routerCart=require('./routes/cart.routes');
-
-/*DB*/
-const Container = require('./src/script');
-const file = new Container();
-
 /*-------------------Middlewares----------------*/
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -21,7 +16,6 @@ app.use(express.static(__dirname+'/public'));
 app.engine('hbs', exphbs.engine({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
-    //partial agrega un template dentro de otro
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: 'hbs'
 }));
